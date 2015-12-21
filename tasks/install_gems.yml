@@ -1,9 +1,0 @@
----
-- name: "Install gems"
-  gem: "name={{ item.name }} version={{item.version}} state=present"
-  sudo: no
-  register: result
-  until: "not result|failed"
-  retries: 5
-  environment: ruby_environment
-  with_items: "{{ gems }}"
