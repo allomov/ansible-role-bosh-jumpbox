@@ -1,29 +1,31 @@
----
-# https://servercheck.in/blog/testing-ansible-roles-travis-ci-github
-language: python
-python: "2.7"
+sudo: required
 
 env:
   - distribution: ubuntu
     version: 14.04
     init: /sbin/init
+    run_opts: ""
+
+services:
+  - docker
 
 before_install:
-  # Make sure everything's up to date.
-  - "sudo apt-get update -qq"
-
-install:
-  - "sudo apt-get purge golang*"
-  - "sudo rm -rf /usr/lib/go /usr/lib/go/src"
-  # Install Ansible.
-  - "pip install ansible"
-  # Add ansible.cfg to pick up roles path.
-  - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
-  - "ansible-galaxy install rvm_io.rvm1-ruby"
-  - "ansible-galaxy install azavea.golang"
+  # - sudo apt-get update
+  # Pull container
+  - 'sudo docker pull ${distribution}:${version}'
+  # Customize container
+  - 'sudo docker build --rm=true --file=tests/Dockerfile.${distribution}-${version} --tag=${distribution}-${version}:ansible tests'
 
 script:
-  # Check the role/playbook's syntax.
-  - "ansible-playbook -i tests/inventory tests/test.yml --syntax-check"
-  # Run the role/playbook with ansible-playbook.
-  - "ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo"
+  - container_id=$(mktemp)
+    # Run container in detached state
+  - 'sudo docker run --detach --volume="${PWD}":/etc/ansible/roles/role_under_test:ro ${run_opts} ${distribution}-${version}:ansible "${init}" > "${container_id}"'
+
+  # Ansible syntax check.
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/role_under_test/tests/test.yml --syntax-check'
+
+  # Test role.
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/role_under_test/tests/test.yml'
+
+  # Clean up
+  - 'sudo docker stop "$(cat ${container_id})"'
