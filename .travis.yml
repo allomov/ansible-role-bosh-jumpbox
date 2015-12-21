@@ -1,4 +1,5 @@
 ---
+# https://servercheck.in/blog/testing-ansible-roles-travis-ci-github
 language: python
 python: "2.7"
 
@@ -15,7 +16,7 @@ install:
   # Install Ansible.
   - "pip install ansible"
   # Add ansible.cfg to pick up roles path.
-  - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
+  - "printf '[defaults]\nroles_path = ../\n' > ansible.cfg"
   - "ansible-galaxy install rvm_io.rvm1-ruby"
   - "ansible-galaxy install azavea.golang"
 
