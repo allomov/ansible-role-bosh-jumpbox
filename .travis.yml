@@ -13,6 +13,8 @@ before_install:
   - "sudo apt-get update -qq"
 
 install:
+  - "sudo apt-get purge golang*"
+  - "sudo rm -rf /usr/lib/go /usr/lib/go/src"
   # Install Ansible.
   - "pip install ansible"
   # Add ansible.cfg to pick up roles path.

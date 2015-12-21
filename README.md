@@ -1,5 +1,7 @@
 # Ansible role for BOSH and CF "jump box"
 
+![travis.ci status](https://travis-ci.org/allomov/ansible-role-cf-bosh-jumpbox.svg?branch=master)
+
 ### Description
 
 ["Jump box"](https://bosh.io/docs/terminology.html#jumpbox) is referred to as a VM that acts as a single access point for the BOSH Director and deployed VMs. Often this VM contains all necessary softaware to access BOSH and CF. This Role tends to ease configuration of resulting configuration of "jump box".
