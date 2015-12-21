@@ -1,0 +1,8 @@
+---
+- include: "install_packages.yml"
+- include: "install_direnv.yml"
+- include: "install_gems.yml gems={{ gems }}"
+- include: "install_from_url.yml tool={{ tools.spiff }}"
+- include: "install_from_url.yml tool={{ tools.spruce }}"
+- include: "install_from_url.yml tool={{ tools.cf_cli }}"
+- include: "install_from_url.yml tool={{ tools.bosh_init }}"

@@ -1,0 +1,4 @@
+---
+- hosts: jumpbox
+  roles:
+  - role: jumpbox
