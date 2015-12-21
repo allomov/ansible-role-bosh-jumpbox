@@ -1,6 +1,6 @@
 ---
 ruby_version: "2.2.3"
-golang_version: "1.4.3"
+golang_version: "1.5.1"
 
 # Such structure of tools and gems section is made
 # because of include + with_items issue, it will be fixed in Ansible 2.0+
