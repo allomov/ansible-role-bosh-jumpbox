@@ -11,14 +11,13 @@ before_install:
   # Make sure everything's up to date.
   - "sudo apt-get update -qq"
 
-
-
 install:
   # Install Ansible.
   - "pip install ansible"
-
   # Add ansible.cfg to pick up roles path.
   - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
+  - "ansible-galaxy install rvm_io.rvm1-ruby"
+  - "ansible-galaxy install azavea.golang"
 
 script:
   # Check the role/playbook's syntax.

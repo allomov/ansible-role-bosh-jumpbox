@@ -1,4 +1,4 @@
-# Ansible role for Cloud Foundry and BOSH "jump box"
+# Ansible role for BOSH and CF "jump box"
 
 ### Description
 
@@ -22,8 +22,9 @@ sudo pip install ansible
 
 ### How to use 
 
-```
+```bash
 ansible-galaxy install allomov.cf-bosh-jumpbox
+
 cat <<EOF > playbook.yml
 ---
 - hosts: jumpbox
