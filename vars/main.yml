@@ -1,5 +1,5 @@
 ---
-go_version: 1.4.2
+go_version: 1.5.1
 ruby_version: 2.1.5
 standard_path: "{{ ansible_env.PATH }}"
 go_root: "/usr/local/gccgo"
