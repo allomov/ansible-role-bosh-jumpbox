@@ -1,4 +1,19 @@
 ---
+galaxy_info:
+  author: "Alexander Lomov"
+  description: "Ansible role for BOSH and Cloud Foundry jumpbox"
+  company: "Altoros"
+  license: "license (GPLv2, CC-BY, etc)"
+  min_ansible_version: 1.6
+  platforms:
+    - name: "Ubuntu"
+      versions:
+       - all
+  categories:
+    - cloud
+    - cloudfoundry
+    - clustering
+
 dependencies:
 - role: shrikeh.curl
   tags: curl
