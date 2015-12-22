@@ -1,5 +1,8 @@
 ---
 dependencies:
+- role: shrikeh.curl
+  tags: curl
+
 - role: rvm_io.rvm1-ruby
   tags: ruby
   rvm1_install_flags: '--auto-dotfiles --user-install'
@@ -7,9 +10,12 @@ dependencies:
   # because of this issue: https://github.com/rvm/rvm1-ansible/issues/31
   rvm1_gpg_key_server: hkp://pgp.mit.edu
   rvm1_user: "{{ ansible_ssh_user }}"
+  rvm1_rvm_version: stable
   rvm1_rubies:
   - "ruby-{{ruby_version}}"
+
 - role: azavea.golang
   tags: golang
   golang_path: "/home/{{ ansible_ssh_user }}/go"
+  golang_arch: "{{ arch }}"
   sudo: yes

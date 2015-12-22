@@ -25,14 +25,14 @@ sudo pip install ansible
 ### How to use 
 
 ```bash
-ansible-galaxy install allomov.cf-bosh-jumpbox
+ansible-galaxy install allomov.bosh-jumpbox
 
 cat <<EOF > playbook.yml
 ---
 - hosts: jumpbox
   sudo: yes
   roles: 
-  - role: allomov.cf-bosh-jumpbox
+  - role: allomov.bosh-jumpbox
 EOF
 
 cat <<EOF > hosts

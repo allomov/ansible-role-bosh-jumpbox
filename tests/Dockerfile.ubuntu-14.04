@@ -6,6 +6,7 @@ RUN apt-add-repository -y ppa:ansible/ansible
 RUN apt-get update
 RUN apt-get install -y ansible
 
+RUN ansible-galaxy install shrikeh.curl
 RUN ansible-galaxy install rvm_io.rvm1-ruby
 RUN ansible-galaxy install azavea.golang
 
