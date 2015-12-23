@@ -1,6 +1,6 @@
 # Ansible role for BOSH and CF "jump box"
 
-![travis.ci status](https://travis-ci.org/allomov/ansible-role-cf-bosh-jumpbox.svg?branch=master)
+![travis.ci status](https://travis-ci.org/allomov/ansible-role-bosh-jumpbox.svg)
 
 ### Description
 
