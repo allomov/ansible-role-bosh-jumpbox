@@ -13,12 +13,12 @@ tools:
     type: zip
   spruce:
     name: "spruce"
-    version: "0.13.0"
+    version: "1.1.2"
     url: "https://github.com/geofffranks/spruce/releases/download/vTOOL_VERSION/spruce_TOOL_VERSION_linux_amd64.tar.gz"
     type: tar
   cf_cli:
     name: "cf"
-    version: "6.14.0"
+    version: "6.16.1"
     url: "https://cli.run.pivotal.io/stable?release=linux64-binary&version=TOOL_VERSION"
     type: tar
   bosh_init:
@@ -34,11 +34,11 @@ tools:
 
 gems:
   - name: "bosh_cli"
-    version: "1.3160.0"
+    version: "1.3202.0"
   - name: "cf-uaac"
-    version: "3.1.3"
+    version: "3.1.7"
   - name: "bosh-workspace"
-    version: "0.9.7"
+    version: "0.9.11"
 
 ### Additional parameters
 
