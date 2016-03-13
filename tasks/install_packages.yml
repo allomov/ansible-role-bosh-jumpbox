@@ -1,6 +1,6 @@
 ---
 - name: Install system packages
-  sudo: yes
+  become: yes
   apt: pkg={{ item }} state=present update_cache=yes
   with_items: [
     git, mercurial, libssl-dev, lsof, strace, tcpdump,

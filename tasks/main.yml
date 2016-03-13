@@ -5,14 +5,12 @@
 # Can't do it using include task because of some bug with array passing
 - name: "Install gems"
   gem: "name={{ item.name }} version={{ item.version }} state=present"
-  sudo: no
+  become: no
   register: result
   until: "not result|failed"
   retries: 2
   environment: ruby_environment
   with_items: "{{ gems }}"
 
-- include: "install_from_url.yml tool={{ tools.spiff }}"
-- include: "install_from_url.yml tool={{ tools.spruce }}"
-- include: "install_from_url.yml tool={{ tools.cf_cli }}"
-- include: "install_from_url.yml tool={{ tools.bosh_init }}"
+- include: "install_from_url.yml tool={{ item }}"
+  with_items: "{{ tools }}"

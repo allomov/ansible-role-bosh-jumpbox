@@ -33,4 +33,4 @@ dependencies:
   tags: golang
   golang_path: "/home/{{ ansible_ssh_user }}/go"
   golang_arch: "{{ arch }}"
-  sudo: yes
+  become: yes

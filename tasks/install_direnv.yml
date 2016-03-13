@@ -3,4 +3,4 @@
 
 - name: Add direnv load to .bashrc
   shell: "echo 'eval $(direnv hook bash)' >> /home/{{ansible_ssh_user}}/.bashrc"
-  sudo: no
+  become: no

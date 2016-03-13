@@ -29,7 +29,7 @@
 
 - name: "Fetch {{ tool.name }} binaries"
   get_url: "url={{ final_url.stdout }}"
-  sudo: no
+  become: no
   register: result
   until: not result|failed
   retries: 5
@@ -39,7 +39,7 @@
 - name: "Unarchive {{ tool.name }} binaries"
   unarchive: "src={{ temp_folder }}/{{ file_name }}"
   when: not tool.type == "raw"
-  sudo: no
+  become: no
   args:
     dest: "{{ temp_folder }}"
     copy: no
@@ -52,7 +52,7 @@
 - name: "Copy binary file"
   shell: "cp {{ binary_file.stdout }} /usr/local/bin/{{ tool.name }}"
   when: not tool.type == "raw"
-  sudo: yes
+  become: yes
 
 - name: Find out where is the binary file
   shell: "ls {{ temp_folder }}/{{ file_name }}"
@@ -62,8 +62,8 @@
 - name: "Copy binary file"
   shell: "cp {{ binary_file.stdout }} /usr/local/bin/{{ tool.name }}"
   when: tool.type == "raw"
-  sudo: yes
+  become: yes
 
 - name: "Set mode"
   file: "path=/usr/local/bin/{{ tool.name }} mode=0755 owner={{ ansible_ssh_user }}"
-  sudo: yes
+  become: yes

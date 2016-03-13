@@ -1,4 +1,5 @@
 ---
+ansible_ssh_user: "{{ lookup('env', 'USER') }}"
 go_version: 1.5.1
 ruby_version: 2.1.5
 standard_path: "{{ ansible_env.PATH }}"

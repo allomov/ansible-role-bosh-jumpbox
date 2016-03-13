@@ -3,34 +3,27 @@ ruby_version: "2.2.3"
 golang_version: "1.5.1"
 arch: amd64
 
-# Such structure of tools and gems section is made
-# because of include + with_items issue, it will be fixed in Ansible 2.0+
 tools:
-  spiff:
-    name: "spiff"
-    version: "1.0.7"
-    url: "https://github.com/cloudfoundry-incubator/spiff/releases/download/vTOOL_VERSION/spiff_linux_amd64.zip"
-    type: zip
-  spruce:
-    name: "spruce"
-    version: "1.1.2"
-    url: "https://github.com/geofffranks/spruce/releases/download/vTOOL_VERSION/spruce_TOOL_VERSION_linux_amd64.tar.gz"
-    type: tar
-  cf_cli:
-    name: "cf"
-    version: "6.16.1"
-    url: "https://cli.run.pivotal.io/stable?release=linux64-binary&version=TOOL_VERSION"
-    type: tar
-  bosh_init:
-    name: "bosh-init"
-    version: "0.0.81"
-    url: "https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-TOOL_VERSION-linux-amd64"
-    type: raw
-  direnv:
-    name: "direnv"
-    version: "2.6.0"
-    url: "https://github.com/direnv/direnv/releases/download/vTOOL_VERSION/direnv.linux-amd64"
-    type: raw
+- name: "spiff"
+  version: "1.0.7"
+  url: "https://github.com/cloudfoundry-incubator/spiff/releases/download/vTOOL_VERSION/spiff_linux_amd64.zip"
+  type: zip
+- name: "spruce"
+  version: "1.1.2"
+  url: "https://github.com/geofffranks/spruce/releases/download/vTOOL_VERSION/spruce_TOOL_VERSION_linux_amd64.tar.gz"
+  type: tar
+- name: "cf"
+  version: "6.16.1"
+  url: "https://cli.run.pivotal.io/stable?release=linux64-binary&version=TOOL_VERSION"
+  type: tar
+- name: "bosh-init"
+  version: "0.0.81"
+  url: "https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-TOOL_VERSION-linux-amd64"
+  type: raw
+- name: "direnv"
+  version: "2.6.0"
+  url: "https://github.com/direnv/direnv/releases/download/vTOOL_VERSION/direnv.linux-amd64"
+  type: raw
 
 gems:
   - name: "bosh_cli"

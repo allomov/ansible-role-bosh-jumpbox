@@ -15,7 +15,7 @@ Resulting machine contains all needed software to manage BOSH and CF. This proej
 
 ### Requirements
 
-Install Ansible `1.9.x`, you can use [this](http://docs.ansible.com/ansible/intro_installation.html) instruction or install ansible using `pip` (the following example installs Ansible to fresh Ubuntu):
+Install Ansible `2.0+`, you can use [this](http://docs.ansible.com/ansible/intro_installation.html) instruction or install ansible using `pip` (the following example installs Ansible to fresh Ubuntu):
 ```
 sudo apt-get update
 sudo apt-get install python-pip python-dev -y
@@ -34,14 +34,14 @@ ansible-galaxy install allomov.bosh-jumpbox
 cat <<EOF > playbook.yml
 ---
 - hosts: jumpbox
-  sudo: yes
+  become: yes
   roles: 
   - role: allomov.bosh-jumpbox
 EOF
 
 cat <<EOF > hosts
 [jumpbox]
-$JUMPBOX_IP ansible_ssh_private_key_file=~/.ssh/id_rsa ansible_ssh_user=ubuntu
+$JUMPBOX_IP ansible_ssh_private_key_file=~/.ssh/id_rsa ansible_become_user=ubuntu
 EOF
 
 ansible-playbook -i hosts playbook.yml
