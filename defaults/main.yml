@@ -10,8 +10,8 @@ tools:
   type: zip
 - name: "spruce"
   version: "1.1.2"
-  url: "https://github.com/geofffranks/spruce/releases/download/vTOOL_VERSION/spruce_TOOL_VERSION_linux_amd64.tar.gz"
-  type: tar
+  url: "https://github.com/geofffranks/spruce/releases/download/vTOOL_VERSION/spruce-linux-amd64"
+  type: raw
 - name: "cf"
   version: "6.16.1"
   url: "https://cli.run.pivotal.io/stable?release=linux64-binary&version=TOOL_VERSION"

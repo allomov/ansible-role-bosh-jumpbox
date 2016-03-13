@@ -65,5 +65,5 @@
   become: yes
 
 - name: "Set mode"
-  file: "path=/usr/local/bin/{{ tool.name }} mode=0755 owner={{ ansible_ssh_user }}"
+  file: "path=/usr/local/bin/{{ tool.name }} mode=0755"
   become: yes
