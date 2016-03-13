@@ -24,14 +24,15 @@ tools:
   version: "2.6.0"
   url: "https://github.com/direnv/direnv/releases/download/vTOOL_VERSION/direnv.linux-amd64"
   type: raw
-
-gems:
-  - name: "bosh_cli"
-    version: "1.3202.0"
-  - name: "cf-uaac"
-    version: "3.1.7"
-  - name: "bosh-workspace"
-    version: "0.9.11"
+- name: "bosh_cli"
+  version: "1.3202.0"
+  gem: true
+- name: "cf-uaac"
+  version: "3.1.7"
+  gem: true
+- name: "bosh-workspace"
+  version: "0.9.11"
+  gem: true
 
 ### Additional parameters
 

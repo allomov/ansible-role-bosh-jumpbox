@@ -1,6 +1,4 @@
 ---
-- include: "install_from_url.yml tool={{ tools.direnv }}"
-
 - name: Add direnv load to .bashrc
   shell: "echo 'eval $(direnv hook bash)' >> /home/{{ansible_ssh_user}}/.bashrc"
   become: no
