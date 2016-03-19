@@ -1,0 +1,67 @@
+---
+resources:
+- name: ansible-role-bosh-jumpbox-repo
+  type: git
+  source:
+    uri: https://github.com/allomov/ansible-role-bosh-jumpbox.git
+    branch: master
+- name: version
+  type: semver
+  source:
+    version: minor
+- name: pr
+  type: pull-request
+  source:
+    version: minor
+- name: slack-notification
+  type: slack-notification
+  source:
+    uri: {{}}
+    repo: allomov/ansible-role-bosh-jumpbox
+    private_key: {{ private-key }}
+
+- name: new-spiff-github-release
+  type: github-release
+  # https://github.com/cloudfoundry-incubator/spiff
+  source: 
+    name: cloudfoundry-incubator
+    repository: spiff
+- name: new-spruce-github-release
+  type: github-release
+  # https://github.com/geofffranks/spruce
+  source:
+    name: geofffranks
+    repository: spruce
+- name: new-cf-cli-github-release
+  type: github-release
+  # https://github.com/cloudfoundry/cli
+  source: 
+    name: cloudfoundry
+    repository: cli
+- name: new-cf-cli-github-release
+  type: github-release
+  # https://github.com/cloudfoundry/cli
+  source: 
+    name: cloudfoundry
+    repository: cli
+
+# - name: bosh-init
+#   type: gem
+# - name: bosh_cli
+#   type: gem
+# - name: cf-uaac
+#   type: gem
+# - name: bosh-workspace
+#   type: gem
+
+jobs:
+- name: update-cli
+  plan:
+  - get: git-repository
+    trigger: true
+  - task: tests
+    file: git-repository/bin/run-tests
+  - put: pull-request
+    params:
+      path: repo
+      status: pending      
