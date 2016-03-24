@@ -5,39 +5,10 @@ resources:
   source:
     uri: https://github.com/allomov/ansible-role-bosh-jumpbox.git
     branch: master
-- name: version
-  type: semver
-  source:
-    version: minor
-- name: pr
-  type: pull-request
-  source:
-    version: minor
 - name: slack-notification
   type: slack-notification
   source:
-    uri: {{}}
-    repo: allomov/ansible-role-bosh-jumpbox
-    private_key: {{ private-key }}
-
-- name: new-spiff-github-release
-  type: github-release
-  # https://github.com/cloudfoundry-incubator/spiff
-  source: 
-    name: cloudfoundry-incubator
-    repository: spiff
-- name: new-spruce-github-release
-  type: github-release
-  # https://github.com/geofffranks/spruce
-  source:
-    name: geofffranks
-    repository: spruce
-- name: new-cf-cli-github-release
-  type: github-release
-  # https://github.com/cloudfoundry/cli
-  source: 
-    name: cloudfoundry
-    repository: cli
+    uri: {{ slack-notification-url }}
 - name: new-cf-cli-github-release
   type: github-release
   # https://github.com/cloudfoundry/cli
@@ -57,10 +28,14 @@ resources:
 jobs:
 - name: update-cli
   plan:
-  - get: git-repository
+  - get: ansible-role-bosh-jumpbox-repo
+    trigger: false
+  - get: new-cf-cli-github-release
     trigger: true
-  - task: tests
-    file: git-repository/bin/run-tests
+  - task: update-cf-cli-version
+    file: ansible-role-bosh-jumpbox-repo/ci/tasks/run-tests.yml
+  - task: run-tests
+    file: ansible-role-bosh-jumpbox-repo/ci/tasks/run-tests.yml
   - put: pull-request
     params:
       path: repo
