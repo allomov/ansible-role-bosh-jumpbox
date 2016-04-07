@@ -14,4 +14,3 @@
     ruby1.9.1-dev, ruby-dev,
     tmux, vim, jq, nodejs, npm
   ]
-  # npm install -g jaml-to-json
