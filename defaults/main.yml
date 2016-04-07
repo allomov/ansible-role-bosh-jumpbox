@@ -1,6 +1,7 @@
 ---
-ruby_version: "2.2.3"
-golang_version: "1.5.1"
+ruby_version: "2.3.0"
+go_version: "1.6"
+golang_version: "{{ go_version }}"
 arch: amd64
 
 tools:
