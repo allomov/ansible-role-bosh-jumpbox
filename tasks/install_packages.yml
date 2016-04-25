@@ -13,4 +13,3 @@
     libffi-dev, libgdbm3, libgdbm-dev, ruby-dev,
     tmux, vim, jq, nodejs, npm
   ]
-  # npm install -g jaml-to-json

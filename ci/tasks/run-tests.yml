@@ -1,0 +1,7 @@
+---
+platform: linux
+image: docker:///allomov/ubuntu#ansible
+inputs:
+  - name: new-cf-cli-github-release
+run:
+  path: ./new-cf-cli-github-release/ci/bin/run-tests-on-localhost

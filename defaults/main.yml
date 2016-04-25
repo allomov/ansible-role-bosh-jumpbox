@@ -22,7 +22,7 @@ tools:
   url: "https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-TOOL_VERSION-linux-amd64"
   type: raw
 - name: "direnv"
-  version: "2.6.0"
+  version: "2.6.0"  # for some reason can't update it now
   url: "https://github.com/direnv/direnv/releases/download/vTOOL_VERSION/direnv.linux-amd64"
   type: raw
 - name: "bosh_cli"
@@ -34,6 +34,10 @@ tools:
 - name: "bosh-workspace"
   version: "0.9.11"
   gem: true
+
+ruby_version: "2.3.0"
+golang_version: "1.6"
+arch: amd64
 
 ### Additional parameters
 

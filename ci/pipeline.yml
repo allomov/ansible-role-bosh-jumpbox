@@ -1,0 +1,42 @@
+---
+resources:
+- name: ansible-role-bosh-jumpbox-repo
+  type: git
+  source:
+    uri: https://github.com/allomov/ansible-role-bosh-jumpbox.git
+    branch: master
+- name: slack-notification
+  type: slack-notification
+  source:
+    uri: {{ slack-notification-url }}
+- name: new-cf-cli-github-release
+  type: github-release
+  # https://github.com/cloudfoundry/cli
+  source: 
+    name: cloudfoundry
+    repository: cli
+
+# - name: bosh-init
+#   type: gem
+# - name: bosh_cli
+#   type: gem
+# - name: cf-uaac
+#   type: gem
+# - name: bosh-workspace
+#   type: gem
+
+jobs:
+- name: update-cli
+  plan:
+  - get: ansible-role-bosh-jumpbox-repo
+    trigger: false
+  - get: new-cf-cli-github-release
+    trigger: true
+  - task: update-cf-cli-version
+    file: ansible-role-bosh-jumpbox-repo/ci/tasks/run-tests.yml
+  - task: run-tests
+    file: ansible-role-bosh-jumpbox-repo/ci/tasks/run-tests.yml
+  - put: pull-request
+    params:
+      path: repo
+      status: pending      

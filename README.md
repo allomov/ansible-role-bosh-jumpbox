@@ -27,14 +27,11 @@ sudo pip install ansible
 You will need to install the role, create 2 files and run one command:
 
 ```bash
-JUMPBOX_IP=...
-
 ansible-galaxy install allomov.bosh-jumpbox
 
 cat <<EOF > playbook.yml
 ---
 - hosts: jumpbox
-  become: yes
   roles: 
   - role: allomov.bosh-jumpbox
     go_version: 1.6
@@ -43,7 +40,7 @@ EOF
 
 cat <<EOF > hosts
 [jumpbox]
-$JUMPBOX_IP ansible_ssh_private_key_file=~/.ssh/id_rsa ansible_become_user=ubuntu
+localhost ansible_connection=local
 EOF
 
 ansible-playbook -i hosts playbook.yml
