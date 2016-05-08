@@ -4,6 +4,8 @@ This folder contains materials to update this ansible role automatically when ne
 
 ### How to run it
 ```
+cp ci/stub.yml{.example,}
+vi ci/stub.yml
 fly set-pipeline -t tutorial -c ci/pipeline.yml -p ansible-role-bosh-jumpbox --load-vars-from ci/stub.yml
 ```
 
