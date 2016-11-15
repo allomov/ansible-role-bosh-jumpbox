@@ -1,7 +1,6 @@
 ---
-ruby_version: "2.3.0"
-go_version: "1.6"
-golang_version: "{{ go_version }}"
+ruby_version: "2.3.1"
+go_version: "1.7.3"
 arch: amd64
 
 tools:
@@ -10,36 +9,35 @@ tools:
   url: "https://github.com/cloudfoundry-incubator/spiff/releases/download/vTOOL_VERSION/spiff_linux_amd64.zip"
   type: zip
 - name: "spruce"
-  version: "1.1.2"
+  version: "1.8.4"
   url: "https://github.com/geofffranks/spruce/releases/download/vTOOL_VERSION/spruce-linux-amd64"
   type: raw
 - name: "cf"
-  version: "6.16.1"
+  version: "6.22.2"
   url: "https://cli.run.pivotal.io/stable?release=linux64-binary&version=TOOL_VERSION"
   type: tar
 - name: "bosh-init"
-  version: "0.0.81"
+  version: "0.0.99"
   url: "https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-TOOL_VERSION-linux-amd64"
   type: raw
+- name: "bosh-cli"
+  version: "0.0.108"
+  url: "https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-TOOL_VERSION-linux-amd64"
+  type: raw
 - name: "direnv"
-  version: "2.6.0"  # for some reason can't update it now
+  version: "2.9.0"  # for some reason can't update it now
   url: "https://github.com/direnv/direnv/releases/download/vTOOL_VERSION/direnv.linux-amd64"
   type: raw
 - name: "bosh_cli"
-  version: "1.3202.0"
+  version: "1.3262.24.0"
   gem: true
 - name: "cf-uaac"
   version: "3.1.7"
   gem: true
-- name: "bosh-workspace"
-  version: "0.9.11"
-  gem: true
-
-ruby_version: "2.3.0"
-golang_version: "1.6"
-arch: amd64
 
 ### Additional parameters
+
+golang_version: "{{ go_version }}"
 
 github_path: "/home/{{ansible_ssh_user}}/github"
 

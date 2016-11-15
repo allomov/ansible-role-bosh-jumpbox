@@ -15,10 +15,10 @@ Resulting machine contains all needed software to manage BOSH and CF. This proej
 
 ### Requirements
 
-Install Ansible `2.0+`, you can use [this](http://docs.ansible.com/ansible/intro_installation.html) instruction or install ansible using `pip` (the following example installs Ansible to fresh Ubuntu):
+Install Ansible `2.0+`, you can use [this](http://docs.ansible.com/ansible/intro_installation.html) instruction or install ansible using `pip` (the following example installs Ansible to fresh Ubuntu 16.04):
 ```
 sudo apt-get update
-sudo apt-get install python-pip python-dev -y
+sudo apt-get install python-pip python-dev libffi-dev libssl-dev -y
 sudo pip install ansible
 ```
 
@@ -34,13 +34,13 @@ cat <<EOF > playbook.yml
 - hosts: jumpbox
   roles: 
   - role: allomov.bosh-jumpbox
-    go_version: 1.6
-    ruby_version: 2.3.0
+    go_version: 1.6.1
+    ruby_version: 2.3.2
 EOF
 
 cat <<EOF > hosts
 [jumpbox]
-localhost ansible_connection=local
+localhost ansible_connection=local 
 EOF
 
 ansible-playbook -i hosts playbook.yml

@@ -16,21 +16,25 @@ galaxy_info:
 
 dependencies:
 - role: shrikeh.curl
+  become: yes
   tags: curl
 
 - role: rvm_io.rvm1-ruby
+  become: yes
   tags: ruby
   rvm1_install_flags: '--auto-dotfiles --user-install'
   rvm1_install_path: '/home/{{ ansible_ssh_user }}/.rvm'
   # because of this issue: https://github.com/rvm/rvm1-ansible/issues/31
   rvm1_gpg_key_server: hkp://pgp.mit.edu
-  rvm1_user: "{{ ansible_ssh_user }}"
+  # using root is the only option to install rvm at this moment:
+  # see for details: https://github.com/rvm/rvm1-ansible/issues/113
+  rvm1_user: "root"
   rvm1_rvm_version: stable
   rvm1_rubies:
   - "ruby-{{ruby_version}}"
 
 - role: azavea.golang
+  become: yes
   tags: golang
   golang_path: "/home/{{ ansible_ssh_user }}/go"
   golang_arch: "{{ arch }}"
-  become: yes
