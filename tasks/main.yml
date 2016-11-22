@@ -4,7 +4,7 @@
 
 - name: "Install gems"
   gem: "name={{ item.name }} version={{ item.version }} state=present"
-  become: no
+  become: yes
   register: result
   until: "not result|failed"
   retries: 2
