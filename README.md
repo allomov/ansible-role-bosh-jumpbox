@@ -34,7 +34,7 @@ cat <<EOF > playbook.yml
 - hosts: jumpbox
   roles: 
   - role: allomov.bosh-jumpbox
-    go_version: 1.6.1
+    go_version: 1.7.3
     ruby_version: 2.3.2
 EOF
 

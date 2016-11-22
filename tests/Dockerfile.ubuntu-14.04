@@ -8,7 +8,7 @@ RUN apt-get update
 RUN apt-get install ansible -y
 
 RUN ansible-galaxy install shrikeh.curl
-RUN ansible-galaxy install rvm_io.rvm1-ruby
+RUN ansible-galaxy install rvm_io.ruby
 RUN ansible-galaxy install azavea.golang
 
 # Install Ansible inventory file

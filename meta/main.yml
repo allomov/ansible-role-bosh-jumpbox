@@ -19,7 +19,7 @@ dependencies:
   become: yes
   tags: curl
 
-- role: rvm_io.rvm1-ruby
+- role: rvm_io.ruby
   become: yes
   tags: ruby
   rvm1_install_flags: '--auto-dotfiles --user-install'
