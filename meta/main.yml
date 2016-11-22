@@ -33,8 +33,8 @@ dependencies:
   rvm1_rubies:
   - "ruby-{{ruby_version}}"
 
-- role: azavea.golang
-  become: yes
-  tags: golang
-  golang_path: "/home/{{ ansible_ssh_user }}/go"
-  golang_arch: "{{ arch }}"
+# - role: azavea.golang
+#   become: yes
+#   tags: golang
+#   golang_path: "/home/{{ ansible_ssh_user }}/go"
+#   golang_arch: "{{ arch }}"
