@@ -1,0 +1,3 @@
+- hosts: jumpbox
+  roles: 
+  - role: allomov.bosh-jumpbox

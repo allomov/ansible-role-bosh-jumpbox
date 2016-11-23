@@ -3,5 +3,3 @@ releases
 tmp
 hosts
 Dockerfile
-playbook.yml
-hosts
