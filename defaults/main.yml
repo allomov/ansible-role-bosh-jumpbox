@@ -1,12 +1,16 @@
 ---
 ruby_version: "2.3.1"
 go_version: "1.7.3"
-arch: amd64
+arch: "amd64"
 
 tools:
 - name: "spiff"
   version: "1.0.7"
   url: "https://github.com/cloudfoundry-incubator/spiff/releases/download/vTOOL_VERSION/spiff_linux_amd64.zip"
+  type: zip
+- name: "spiff++"
+  version: "1.0.8-ms.6"
+  url: "https://github.com/mandelsoft/spiff/releases/download/vTOOL_VERSION/spiff_linux_amd64.zip"
   type: zip
 - name: "spruce"
   version: "1.8.4"
@@ -21,7 +25,7 @@ tools:
   url: "https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-TOOL_VERSION-linux-amd64"
   type: raw
 - name: "bosh-cli"
-  version: "0.0.108"
+  version: "0.0.121"
   url: "https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-TOOL_VERSION-linux-amd64"
   type: raw
 - name: "direnv"
@@ -32,25 +36,25 @@ tools:
   version: "1.3262.24.0"
   gem: true
 - name: "cf-uaac"
-  version: "3.1.7"
+  version: "3.4.0"
   gem: true
 
 ### Additional parameters
 
 golang_version: "{{ go_version }}"
 
-github_path: "/home/{{ansible_ssh_user}}/github"
+github_path: "/home/{{ ansible_ssh_user }}/github"
 
-standard_path: "{{ansible_env.PATH}}"
+standard_path: "{{ ansible_env.PATH }}"
 
 go_root: "/usr/local/gccgo"
-go_path: "/home/{{ansible_ssh_user}}/go"
-temp_folder: "/home/{{ansible_ssh_user}}/tmp"
+go_path: "/home/{{ ansible_ssh_user }}/go"
+temp_folder: "/home/{{ ansible_ssh_user }}/tmp"
 
 go_environment:
-  GOROOT: "{{go_root}}"
-  GOPATH: "{{go_path}}"
-  PATH: "{{go_root}}/bin:{{go_path}}/bin:{{standard_path}}"
+  GOROOT: "{{ go_root }}"
+  GOPATH: "{{ go_path }}"
+  PATH: "{{ go_root }}/bin:{{ go_path }}/bin:{{ standard_path }}"
 
 ruby_environment:
   PATH: "/home/{{ansible_ssh_user}}/.rvm/wrappers/default/:{{standard_path}}"

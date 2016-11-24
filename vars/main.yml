@@ -4,7 +4,7 @@ go_version: 1.7.3
 ruby_version: 2.3.1
 standard_path: "{{ ansible_env.PATH }}"
 go_root: "/usr/local/gccgo"
-go_path: "/home/{{ansible_ssh_user}}/go"
+go_path: "/home/{{ ansible_ssh_user }}/go"
 ruby_environment:
   PATH: "/home/{{ansible_ssh_user}}/.rvm/wrappers/default/:{{standard_path}}"
 go_environment:

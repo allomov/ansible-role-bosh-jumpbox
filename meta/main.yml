@@ -33,8 +33,11 @@ dependencies:
   rvm1_rubies:
   - "ruby-{{ruby_version}}"
 
-# - role: azavea.golang
-#   become: yes
-#   tags: golang
-#   golang_path: "/home/{{ ansible_ssh_user }}/go"
-#   golang_arch: "{{ arch }}"
+- role: azavea.golang
+  become: yes
+  tags: golang
+  golang_path: "/home/{{ ansible_ssh_user }}/go"
+  golang_arch: "{{ arch }}"
+  # because of this issue: https://github.com/azavea/ansible-pip/issues/3
+  pip_version: "8.1.*"
+  python_version: "2.7.*"
