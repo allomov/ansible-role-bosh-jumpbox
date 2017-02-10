@@ -25,7 +25,7 @@ tools:
   url: "https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-TOOL_VERSION-linux-amd64"
   type: raw
 - name: "bosh-cli"
-  version: "0.0.121"
+  version: "0.0.155"
   url: "https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-TOOL_VERSION-linux-amd64"
   type: raw
 - name: "direnv"

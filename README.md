@@ -15,7 +15,8 @@ Resulting machine contains all needed software to manage BOSH and CF. This proej
 
 ### Requirements
 
-Install Ansible `2.0+`, you can use [this](http://docs.ansible.com/ansible/intro_installation.html) instruction or install ansible using `pip` (the following example installs Ansible to fresh Ubuntu 16.04):
+Install Ansible `2.2+`, you can use [this](http://docs.ansible.com/ansible/intro_installation.html) instruction or install ansible using `pip` (the following example installs Ansible to fresh Ubuntu 16.04):
+
 ```
 sudo apt-get update
 sudo apt-get install python-pip python-dev libffi-dev libssl-dev -y
