@@ -20,12 +20,8 @@ tools:
   version: "6.22.2"
   url: "https://cli.run.pivotal.io/stable?release=linux64-binary&version=TOOL_VERSION"
   type: tar
-- name: "bosh-init"
-  version: "0.0.99"
-  url: "https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-TOOL_VERSION-linux-amd64"
-  type: raw
 - name: "bosh-cli"
-  version: "0.0.155"
+  version: "2.0.14"
   url: "https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-TOOL_VERSION-linux-amd64"
   type: raw
 - name: "direnv"
